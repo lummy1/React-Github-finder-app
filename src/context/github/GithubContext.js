@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import githubReducer from "../GithubReducer";
+import githubReducer from "./GithubReducer";
     
     
 const GithubContext = createContext()
@@ -67,6 +67,17 @@ export const GithubProvider = ({children}) => {
 
 
    }
+
+   //clear users from UI on Clear btn clicked
+
+ const clearUsers = () =>{
+    setLoading()
+    dispatch({
+        type: 'CLEAR_USERS'
+
+    })
+ }
+
    //set Loading function using Reducers
    const setLoading = () => dispatch({
         type: 'SET_LOADING'
@@ -79,6 +90,7 @@ export const GithubProvider = ({children}) => {
             users :  state.users,
             fetchUsers,
             searchUsers,
+            clearUsers,
 
 
     }}>
