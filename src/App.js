@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Notfound from './pages/Notfound';
 import Navbar from './components/layouts/Navbar';
-import Footer from './components/Footer';
+import Footer from './components/layouts/Footer';
 
 function App() {
   return (
