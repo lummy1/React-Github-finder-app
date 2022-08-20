@@ -27,6 +27,7 @@ export const GithubProvider = ({children}) => {
         }
      }) 
 
+     
      const data= await response.json()
      
      dispatch({
@@ -35,7 +36,37 @@ export const GithubProvider = ({children}) => {
      })
    }
 
+   //Get searched users by text
+   const searchUsers = async (text) => {
+        setLoading()
 
+        const params = new URLSearchParams({
+            q: text
+        })
+        const response = await fetch(`${GITHUB_URL}/search/users?${params}`,{
+                        headers: {
+                            Authorization: `token ${GITHUB_TOKEN}`
+                            
+                        }
+                        
+                    })
+
+                    
+        const {items}= await response.json()
+         //const data= await response.json()
+                    console.log(items)
+
+         dispatch({
+
+            type: 'SEARCH_USER',
+            payload: items,
+         }
+
+         )
+
+
+
+   }
    //set Loading function using Reducers
    const setLoading = () => dispatch({
         type: 'SET_LOADING'
@@ -47,6 +78,7 @@ export const GithubProvider = ({children}) => {
            loading:  state.loading,
             users :  state.users,
             fetchUsers,
+            searchUsers,
 
 
     }}>
