@@ -4,9 +4,9 @@ import Home from './pages/Home'
 import About from './pages/About'
 import User from './pages/User';
 import Notfound from './pages/Notfound';
-import Navbar from './components/layouts/Navbar';
-import Footer from './components/layouts/Footer';
-import Alert from './components/layouts/Alert';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Alert from './components/layout/Alert';
 import {GithubProvider} from './context/github/GithubContext'
 import {AlertProvider} from './context/alert/AlertContext'
 
